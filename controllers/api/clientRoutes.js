@@ -1,10 +1,13 @@
+// Client Route
 const router = require('express').Router();
 const { Client } = require('../../models');
 
+// Create a new client
 router.post('/', async (req, res) => {
   try {
     const clientData = await Client.create(req.body);
 
+    // Save the session
     req.session.save(() => {
       req.session.user_id = clientData.id;
       req.session.logged_in = true;
@@ -16,6 +19,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Client logging in
 router.post('/login', async (req, res) => {
   try {
     const clientData = await Client.findOne({ where: { email: req.body.email } });
@@ -36,6 +40,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    // Save the session
     req.session.save(() => {
       req.session.user_id = clientData.id;
       req.session.logged_in = true;
@@ -48,6 +53,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Client logging out
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

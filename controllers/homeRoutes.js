@@ -1,10 +1,12 @@
+//Followed the solved folder in the mini-project
+
 const router = require('express').Router();
 const { Post, Client } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
         {
@@ -18,8 +20,8 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', {
-      projects,
+    res.render('dashboard', {
+      blogPosts: posts,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -50,9 +52,9 @@ router.get('/post/:id', async (req, res) => {
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
+    // Find the logged in client based on the session ID
     const clientData = await Client.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Post }],
@@ -60,9 +62,10 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const client = clientData.get({ plain: true });
 
-    res.render('profile', {
-      ...client,
-      logged_in: true
+    res.render('dashboard', {
+      username: client.name,
+      blogPosts: client.posts,
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -70,9 +73,9 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  // If the client is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 

@@ -21,20 +21,22 @@
   - [Acknowledgements and Credits](#acknowledgements-and-credits)
   - [Author](#author)
 
-## Technologies Used 
+## Technologies Used
+* Handlebars
+* CSS
 * Javascript
-* Node.js
+* Node.JS
 * MySQL
-* Insomnia
-* 
+* Bootstrap
+* Express.JS
 
 ## Installation
 - Navigate to this [repository]().
 - Open your terminal on your local machine and clone the repository.
-- The following are the installation needed to start the company's database to work before anything else:
+- The following are the installation needed to start the blog to work before anything else:
   - npm i: install the dependencies packages
   - .env: fill up the following information needed for security purposes:
-      - DB_NAME='ecommerce_db'
+      - DB_NAME='techBlog_db'
       - DB_PASSWORD='your password'
       - DB_USER='your MYSQL username'
 
@@ -42,8 +44,8 @@
 
 
 ## Links
-- Github Repository: 
-- Google Heroku Link:
+- Github Repository: https://github.com/mcramileux/mcramileux-tech-blog
+- Heroku Deployment:
 
 ## Contributions
 * Contributions to this project won't be accepted as this is the reflection of the author's work hence the following questions and answers. Furthermore, forking or creating a pull request is acceptable.
