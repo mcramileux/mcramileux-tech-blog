@@ -1,7 +1,7 @@
 //Followed the solved folder in the mini-project
 
 const router = require('express').Router();
-const { Post, Client } = require('../models');
+const { Post, Client, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -20,10 +20,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('dashboard', {
-      blogPosts: posts,
-      logged_in: req.session.logged_in
-    });
+    res.render('dashboard', posts);
   } catch (err) {
     res.status(500).json(err);
   }

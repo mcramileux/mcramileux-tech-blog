@@ -1,56 +1,126 @@
 // Client Route
 const router = require('express').Router();
-const { Client } = require('../../models');
+const { Client, Post, Comment } = require('../../models');
 
-// Create a new client
-router.post('/', async (req, res) => {
-  try {
-    const clientData = await Client.create(req.body);
-
-    // Save the session
-    req.session.save(() => {
-      req.session.user_id = clientData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(clientData);
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+// Get all clients
+router.get('/', (req, res) => {
+  Client.findAll({
+          attributes: {
+              exclude: ['password']
+          }
+      })
+      .then(dbClientData => res.json(dbClientData))
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
 });
+
+// Get a specific client
+router.get('/:id', (req, res) => {
+  Client.findOne({
+          attributes: {
+              exclude: ['password']
+          },
+          where: {
+              id: req.params.id
+          },
+          include: [{
+                  model: Post,
+                  attributes: ['id', 'title', 'content', 'created_at']
+              },
+              {
+                  model: Comment,
+                  attributes: ['id', 'comment_text', 'created_at'],
+                  include: {
+                      model: Post,
+                      attributes: ['title']
+                  }
+              }
+          ]
+      })
+      .then(dbClientData => {
+          if (!dbClientData) {
+              res.status(404).json({
+                  message: 'No client found with this id'
+              });
+              return;
+          }
+          res.json(dbClientData);
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
+// Create a new client
+router.post('/', (req, res) => {
+  Client.create({
+          username: req.body.username,
+          password: req.body.password
+      })
+      .then(dbClientData => {
+          // save the session
+          req.session.save(() => {
+              req.session.user_id = dbClientData.id;
+              req.session.username = dbClientData.username;
+              req.session.loggedIn = true;
+
+              res.json(dbClientData);
+          });
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+})
 
 // Client logging in
 router.post('/login', async (req, res) => {
-  try {
-    const clientData = await Client.findOne({ where: { email: req.body.email } });
+    Client.findOne({ 
+      where: { 
+        email: req.body.email
+      } 
+    })
+    .then(dbClientData => {
+      if (!dbClientData) {
+          res.status(400).json({
+              message: 'No client with that username!'
+          });
+          return;
+      }
 
-    if (!clientData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
+    //   req.session.save(() => {
+    //       req.session.user_id = dbClientData.id;
+    //       req.session.username = dbClientData.username;
+    //       req.session.loggedIn = true;
 
-    const validPassword = await clientData.checkPassword(req.body.password);
+    //       res.json({
+    //           user: dbClientData,
+    //           message: 'You are now logged in!'
+    //       });
+    //   });
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
-      return;
-    }
+      const validPassword = dbClientData.checkPassword(req.body.password);
 
-    // Save the session
-    req.session.save(() => {
-      req.session.user_id = clientData.id;
-      req.session.logged_in = true;
-      
-      res.json({ client: clientData, message: 'You are now logged in!' });
-    });
+      if (!validPassword) {
+          res.status(400).json({
+              message: 'Incorrect password!'
+          });
+          return;
+      }
+      //save the session
+      req.session.save(() => {
+          req.session.user_id = dbClientData.id;
+          req.session.username = dbClientData.username;
+          req.session.loggedIn = true;
 
-  } catch (err) {
-    res.status(400).json(err);
-  }
+          res.json({
+              user: dbClientData,
+              message: 'You are now logged in!'
+          });
+      });
+  });
 });
 
 // Client logging out
