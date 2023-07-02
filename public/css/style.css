@@ -1,8 +1,72 @@
-header, .project:not(:last-child) {
+/* followed the mini-project's solved folder */
+
+/* Color Schemes via Color Picker and Unsplash */
+:root {
+  --pink:#e0a5ad;
+  --blue: #5faac0;
+  --hover: #ba8a69;
+  --white: #ebf0f5;
+  --gray: #1b3138;
+
+}
+header, .blogpost:not(:last-child) {
+    background-color:#e0a5ad;
+    background-size:cover;
     border-bottom: 1px solid #ccc;
   }
-  
-  .no-button {
+
+html {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 120%;
+    margin: 0;
+    padding: 0;
+  }
+body {
+    background-color:#5faac0;
+  }
+
+header h1 {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 20px 50px;
+    padding: 10px 15px;
+    display: inline-block;
+    box-shadow: inset;
+    border-radius: 5px;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}  
+
+nav a {
+    margin: 1.2rem;
+    text-decoration: none;
+    color: #1b3138;
+    font-size: 20px;
+  }
+
+nav a:hover {
+    text-decoration: underline;
+    color:#ebf0f5;
+  }
+
+.created-by {
+
+}
+
+.created-by p {
+
+}
+
+.blogpost-desc {
+
+}
+
+.blogpost-desc p {
+
+}
+
+.no-button {
     background: none;
     border: none;
     padding: 0;
@@ -12,14 +76,32 @@ header, .project:not(:last-child) {
     font-size: 100%;
   }
   
-  .no-button:hover {
-    color: #065b83;
+.no-button:hover {
+    color: #ebf0f5;
     text-decoration: underline;
   }
   
-  .dollar-amount {
-    color: #056605;
-    font-weight: bold;
-    margin-left: -5px;
+.blogpost-name-not-link {
+
+}
+
+.blogpost-name-link:hover {
+
+}
+
+#blogpost-id {
+  display: none;
+}
+
+.user-blogpost-names-list-item {
+
+}
+
+.user-blogpost-names-list-item-link {
+
+}
+
+.user-blogpost-names-list-item-link:hover {
+    text-decoration: underline;
+    color:#ebf0f5;
   }
-  

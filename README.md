@@ -63,6 +63,7 @@ This project is under [MIT](https://choosealicense.com/licenses/mit/) license.
 - [Sequelize](https://sequelize.org/)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [.gitignore](https://github.com/jpd61/mvc-tech-blog/blob/master/.gitignore)
+- [Unsplash](https://unsplash.com/photos/oCVgzXKf9s4) color scheme for the blog site with the help of Color Picker
 
 ## Acknowledgements and Credits
 - Jacob Carver - weekly boot camp tutor
