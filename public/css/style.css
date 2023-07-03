@@ -1,16 +1,16 @@
 /* followed the mini-project's solved folder */
 
-/* Color Schemes via Color Picker and Unsplash */
+/* Color Schemes via Color Picker and Mockup photo */
 :root {
-  --pink:#e0a5ad;
-  --blue: #5faac0;
+  --nav:#221010;
+  --body: #d9e9d3;
   --hover: #ba8a69;
-  --white: #ebf0f5;
-  --gray: #1b3138;
+  --text: #ebf0f5;
+  --gray: #a7a7a7;
 
 }
 header, .blogpost:not(:last-child) {
-    background-color:#e0a5ad;
+    background-color:#221010;
     background-size:cover;
     border-bottom: 1px solid #ccc;
   }
@@ -22,7 +22,7 @@ html {
     padding: 0;
   }
 body {
-    background-color:#5faac0;
+    background-color:#d9e9d3;
   }
 
 header h1 {
@@ -41,13 +41,13 @@ header h1 {
 nav a {
     margin: 1.2rem;
     text-decoration: none;
-    color: #1b3138;
+    color:#ebf0f5; 
     font-size: 20px;
   }
 
 nav a:hover {
     text-decoration: underline;
-    color:#ebf0f5;
+    color: #a7a7a7;
   }
 
 .created-by {
