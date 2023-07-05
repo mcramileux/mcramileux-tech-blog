@@ -23,7 +23,7 @@ Post.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    user_id: {
+    client_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'client',

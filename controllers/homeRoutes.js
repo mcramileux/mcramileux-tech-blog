@@ -1,17 +1,17 @@
 //Followed the solved folder in the mini-project
 
 const router = require('express').Router();
-const { Post, Client, Comment } = require('../models');
+const { Post, Client } = require('../models'); 
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all posts and JOIN with user data
+    // Get all posts and JOIN with client data
     const postData = await Post.findAll({
       include: [
         {
           model: Client,
-          attributes: ['name'],
+          // attributes: ['name'],
         },
       ],
     });
@@ -20,39 +20,20 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('dashboard', posts);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/post/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: Client,
-          attributes: ['name'],
-        },
-      ],
+    res.render('homepage', {
+      posts,
+      logged_in: req.session.logged_in,
     });
-
-    const post = postData.get({ plain: true });
-
-    res.render('post', {
-      ...post,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+      } catch (err) {
+        res.status(500).json(err);
+    }
+  });
 
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in client based on the session ID
-    const clientData = await Client.findByPk(req.session.user_id, {
+    const clientData = await Client.findByPk(req.session.client_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Post }],
     });
@@ -60,8 +41,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const client = clientData.get({ plain: true });
 
     res.render('dashboard', {
-      username: client.name,
-      blogPosts: client.posts,
+      // username: client.name,
+      // blogPosts: client.posts,
+      ...client,
       logged_in: true,
     });
   } catch (err) {
