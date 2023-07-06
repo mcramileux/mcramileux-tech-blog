@@ -13,17 +13,18 @@ header, .blogpost:not(:last-child) {
     background-color:#221010;
     background-size:cover;
     border-bottom: 1px solid #ccc;
-  }
+}
 
 html {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 120%;
     margin: 0;
     padding: 0;
-  }
+}
+
 body {
     background-color:#d9e9d3;
-  }
+}
 
 header h1 {
     font-size: 38px;
@@ -43,27 +44,33 @@ nav a {
     text-decoration: none;
     color:#ebf0f5; 
     font-size: 20px;
-  }
+}
 
 nav a:hover {
     text-decoration: underline;
     color: #a7a7a7;
-  }
+}
 
 .created-by {
-
+  color: #d9e9d3;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .created-by p {
-
+  text-align: right;
+  margin: 0;
+  line-height: auto;
 }
 
 .blogpost-desc {
-
+  margin-top: 0;
+  border-color: #221010;
+  border: 5px solid;
 }
 
 .blogpost-desc p {
-
+  margin: 20px;
 }
 
 .no-button {
@@ -74,19 +81,24 @@ nav a:hover {
     color: #1b89bc;
     text-decoration: none;
     font-size: 100%;
-  }
+}
   
 .no-button:hover {
     color: #ebf0f5;
     text-decoration: underline;
-  }
-  
-.blogpost-name-not-link {
+}
 
+.blogpost-name-link {
+    color: #d9e9d3;
+}
+
+.blogpost-name-not-link {
+    color: #221010;
 }
 
 .blogpost-name-link:hover {
-
+  color: #d9e9d3;
+  text-decoration: none;
 }
 
 #blogpost-id {
@@ -94,14 +106,16 @@ nav a:hover {
 }
 
 .user-blogpost-names-list-item {
-
+  background-color: #221010;
+  border-radius: 1.5rem;
 }
 
 .user-blogpost-names-list-item-link {
-
+  margin: 1rem 2rem 1rem 2rem;
+  color: #D5EBD1;
 }
 
 .user-blogpost-names-list-item-link:hover {
     text-decoration: underline;
     color:#ebf0f5;
-  }
+}
