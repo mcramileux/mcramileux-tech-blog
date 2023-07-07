@@ -1,3 +1,5 @@
+// might delete
+
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, Client, Comment } = require('../models');

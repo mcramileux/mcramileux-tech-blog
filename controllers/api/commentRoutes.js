@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 
 // Get a single comment by its 'id'
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   Comment.findByPk(req.params.id, {
     include: Post,
   })
@@ -36,7 +36,7 @@ router.post('/', withAuth, (req, res) => {
   // if (req.session) {
     Comment.create({
       comment_text: req.body.comment_text,
-     client_id: req.session.client_id,
+      client_id: req.session.client_id,
       post_id: req.body.post_id
     })
       .then(comment => res.json(comment))
@@ -47,7 +47,7 @@ router.post('/', withAuth, (req, res) => {
   });
 
 // Delete a comment
-router.delete("/:id", withAuth, (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
   Comment.destroy({
     where: {
       id: req.params.id,

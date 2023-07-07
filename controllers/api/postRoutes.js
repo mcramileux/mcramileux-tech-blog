@@ -1,4 +1,5 @@
 //Followed the solved folder in the mini-project
+// post and delete - all good, check about router.put
 
 const router = require('express').Router();
 const { Post } = require('../../models');

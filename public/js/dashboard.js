@@ -1,3 +1,7 @@
+// followed the mini-project's solved folder
+// CHECK THE ID AND CLASS SELECTOR IN HANDLEBARS
+// OTHER THAN THAT, ALL CODES ARE GOOD
+
 const newFormHandler = async (event) => {
     event.preventDefault();
 
@@ -5,7 +9,7 @@ const newFormHandler = async (event) => {
     const content = document.querySelector('#blogpost-cont').value.trim();
 
     if (title && content) {
-        const response = await fetch("/api/post", {
+        const response = await fetch("/api/posts", {
             method: 'POST',
             body: JSON.stringify({ title, content }),
             headers: {
@@ -25,7 +29,7 @@ const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-        const response = await fetch('/api/post/${id}', {
+        const response = await fetch(`/api/posts/${id}`, {
             method: 'DELETE',
         });
 
@@ -38,9 +42,9 @@ const delButtonHandler = async (event) => {
 };
 
 document
-    .querySelector('.new-blogpost-form')
-    .addEventListener('submit', newFormHandler);
+    .querySelector('.new-blogpost-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
+    .addEventListener('submit', newFormHandler); //CHECK THIS BUTTON IN HANDLEBARS
 
 document
-    .querySelector('.blogpost-list')
-    .addEventListener('click', delButtonHandler);
+    .querySelector('.blogpost-list') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
+    .addEventListener('click', delButtonHandler); //CHECK THIS BUTTON IN HANDLEBARS
