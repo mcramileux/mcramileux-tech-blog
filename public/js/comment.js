@@ -5,9 +5,9 @@ const newCommentHandler = async (event) => {
     // var blogpost_id = dataElement.getAttribute('data-id');
     console.log(blogpost_id);
     if (description) {
-        await fetch("/api/comments", {
+        await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({ description, blogpost_id,
+            body: JSON.stringify({ content, blogpost_id,
             }),
             headers: {
                 'Content-Type': 'application/json',
