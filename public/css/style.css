@@ -27,16 +27,18 @@ body {
 }
 
 header h1 {
+    background-color: #d9e9d3;
     font-size: 38px;
     font-weight: bold;
     margin: 20px 50px;
     padding: 10px 15px;
     display: inline-block;
-    box-shadow: inset;
+    box-shadow: 7px 7px 0px #a7a7a7;
     border-radius: 5px;
     margin-left: 3rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
+    justify-items: center;
 }  
 
 nav a {
@@ -78,7 +80,7 @@ nav a:hover {
     border: none;
     padding: 0;
     cursor: pointer;
-    color: #1b89bc;
+    color: #ebf0f5;
     text-decoration: none;
     font-size: 100%;
 }
@@ -108,11 +110,12 @@ nav a:hover {
 .user-blogpost-names-list-item {
   background-color: #221010;
   border-radius: 1.5rem;
+  display: flex;
 }
 
 .user-blogpost-names-list-item-link {
   margin: 1rem 2rem 1rem 2rem;
-  color: #D5EBD1;
+  color: #d9e9d3;
 }
 
 .user-blogpost-names-list-item-link:hover {
