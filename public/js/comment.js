@@ -2,16 +2,17 @@
 // CHECK THE ID AND CLASS SELECTOR IN HANDLEBARS
 
 const newCommentHandler = async (event) => {
-
+    event.preventDefault();
+    
     const description = document.querySelector('#comment-desc').value.trim();
-    const dataElement = document.getElementById('blogpost-id'); //CHECK THIS LINE IN HANDLEBARS
-    // var blogpost_id = dataElement.getAttribute('data-id');
+    const postId = document.getElementById('blogpost-id'); //CHECK THIS LINE IN HANDLEBARS
+    
     console.log(blogpost_id); //CHECK THIS LINE IN HANDLEBARS
 
     if (description) {
         await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({ content, blogpost_id }), //CHECK THIS LINE IN HANDLEBARS
+            body: JSON.stringify({ description, postId }), //CHECK THIS LINE IN HANDLEBARS
             headers: {
                 'Content-Type': 'application/json',
             },
