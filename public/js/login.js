@@ -36,14 +36,15 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    const email = document.querySelector('#email-signup').value.trim();
+    // const email = document.querySelector('#email-signup').value.trim();
+    const name = document.querySelector("#name-signup").value.trim();
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
-    if (email && username && password) {
+    if (name && username && password) { // was email changed to name
         const response = await fetch('/api/clients', {
             method: 'POST',
-            body: JSON.stringify({ email, username, password }),
+            body: JSON.stringify({ name, username, password }), // was email changed to name
             headers: { 'Content-Type': 'application/json'},
         });
 
@@ -56,9 +57,9 @@ const signupFormHandler = async (event) => {
 }
 
 document
-.querySelector('.login-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
-.addEventListener('submit', loginFormHandler); //CHECK THIS BUTTON IN HANDLEBARS
+.querySelector('.login-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS ---checked
+.addEventListener('submit', loginFormHandler); //CHECK THIS BUTTON IN HANDLEBARS ---checked
 
 document
-.querySelector('.signup-form') //CHECK THIS CLASS SELECTOR
-.addEventListener('submit', signupFormHandler); //CHECK THIS BUTTON
+.querySelector('.signup-form') //CHECK THIS CLASS SELECTOR ---checked
+.addEventListener('submit', signupFormHandler); //CHECK THIS BUTTON ---checked
