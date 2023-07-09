@@ -71,6 +71,7 @@ router.get('/posts/:id', (req, res) => {
       post = post.get({ plain: true });
       res.render('edit-post', { post, logged_in: req.session.logged_in });
   });
+  
 });
 
 // Use withAuth middleware to prevent access to route
@@ -141,27 +142,5 @@ router.get('/logout', (req, res) => {
       res.redirect('/');
   });
 });
-
-// // Use withAuth middleware to prevent access to route
-// router.get('/dashboard', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in client based on the session ID
-//     const clientData = await Client.findByPk(req.session.client_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Post }],
-//     });
-
-//     const client = clientData.get({ plain: true });
-
-//     res.render('dashboard', {
-//       // username: client.name,
-//       // blogPosts: client.posts,
-//       ...client,
-//       logged_in: true,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;

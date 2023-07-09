@@ -1,14 +1,13 @@
-<section class="post">
-    <div class="section-header">
+ <div class="row mb-2 user-blogpost-names-list-item">
+      <div class="col-md-8"> 
         <h3>Create New Post</h3>
     </div>
-    <div class="section-body">
-        <form action="/post" method="POST">
+    <div class="col-md-6 created-by">
+        <form action="/api/post" method="POST" id="new-post-form">
             <label for="title">{{post.title}}</label>
             <input type="text" name="title" id="title">
-            <label for="content">{{post.contents}}</label>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
-            <button class="create-post" type="submit">Create</button>
+            <label for="content">{{post.content}}</label>
+            <textarea name="content" id="content"></textarea>
+            <button class="create-post" type="submit" data-id="{{post.id}}">+Add Post</button>
         </form>
-    </div>
-</section>
+     </div>

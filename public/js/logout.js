@@ -16,5 +16,5 @@ const logout = async () => {
   };
   
   document
-  .querySelector('#logout') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
-  .addEventListener('click', logout); //CHECK THIS BUTTON IN HANDLEBARS
+  .querySelector('#logout') 
+  .addEventListener('click', logout); 
