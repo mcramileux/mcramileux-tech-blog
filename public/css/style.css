@@ -9,7 +9,7 @@
   --gray: #a7a7a7;
 
 }
-header, .blogpost:not(:last-child) {
+header, .blogpost-header, .blogpost:not(:last-child) {
     background-color:#221010;
     background-size:cover;
     border-bottom: 1px solid #ccc;

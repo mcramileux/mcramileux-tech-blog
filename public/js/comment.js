@@ -5,9 +5,9 @@ const newCommentHandler = async (event) => {
     event.preventDefault();
     
     const description = document.querySelector('#comment-desc').value.trim();
-    const postId = document.getElementById('blogpost-id'); //CHECK THIS LINE IN HANDLEBARS
-    
-    console.log(blogpost_id); //CHECK THIS LINE IN HANDLEBARS
+    const postId = document.getElementById('#blogpost-id'); //CHECK THIS LINE IN HANDLEBARS
+    var post_id = dataElement.getAttribute('data-id');
+    console.log(post_id); //CHECK THIS LINE IN HANDLEBARS
 
     if (description) {
         await fetch('/api/comments', {
@@ -19,7 +19,7 @@ const newCommentHandler = async (event) => {
         })
         .then((response) => {
             if (response.ok) {
-                fetch('/api/posts/' + blogpost_id, { //CHECK THIS LINE IN HANDLEBARS
+                fetch('/api/posts/' + post_id, { //CHECK THIS LINE IN HANDLEBARS
                     method: 'GET',
                 });
                 window.location.reload();

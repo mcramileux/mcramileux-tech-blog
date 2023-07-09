@@ -26,5 +26,5 @@ const loginFormHandler = async (event) => {
 };
 
 document
-.querySelector('#login-button') //CHECK THIS CLASS SELECTOR IN HANDLEBARS ---checked
+.querySelector('.login-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS ---checked
 .addEventListener('submit', loginFormHandler); //CHECK THIS BUTTON IN HANDLEBARS ---checked
