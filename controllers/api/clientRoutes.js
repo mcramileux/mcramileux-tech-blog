@@ -3,6 +3,7 @@
 // Client Route
 const router = require('express').Router();
 const { Client } = require('../../models');
+// const withAuth = require('../../utils/auth');
 
 // Create a new client
 router.post('/', async (req, res) => {
@@ -13,8 +14,8 @@ router.post('/', async (req, res) => {
       req.session.client_id = clientData.id;
       req.session.logged_in = true;
 
-      // res.status(200).json(clientData);
-      res.json({ user: clientData, message: "You are now signed up!"});
+      res.status(200).json(clientData);
+      // res.json({ user: clientData, message: "You are now signed up!"});
     });
   } catch (err) {
     res.status(400).json(err);
@@ -43,6 +44,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
+      // console.log(clientData.id, req.session);
       req.session.client_id = clientData.id;
       req.session.logged_in = true;
 

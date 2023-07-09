@@ -1,4 +1,52 @@
-{{!-- <!-- followed the mini-project's solved folder -->
+<!-- followed the mini-project's solved folder -->
+{{!-- 
+  <!-- check the posts then execute it -->
+  {{#if posts.length}}
+  <div class="col-md-6 blogpost-list">
+    <h3>All Posts:</h3>
+
+    <!-- create a template loop for the collection of posts in this blog -->
+    {{#each posts as |post|}}
+    <div class="row mb-2 user-blogpost-names-list-item">
+      <div class="col-md-8">
+        <h4><a class="user-blogpost-names-list-item-link" href="/api/post/{{post.id}}">{{post.name}}</a></h4>
+          </div>
+          <div class="col-md-6 created-by">
+            <p><span id="blogpost-id">{{id}}</span>
+              Created on 
+              {{format_date post.date_created}}</p>
+          </div>
+          {{!-- <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+      </div> MIGHT NEED IT--}}
+    {{!-- </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div> --}}
+
+{{#if posts.length}}
+{{#each posts as |post|}}
+<div class="row mb-2 user-blogpost-names-list-item">
+      <div class="col-md-8">
+        {{!-- <h4><a class="user-blogpost-names-list-item-link" href="/api/post/{{post.id}}">{{post.name}}</a></h4> --}}
+          </div>
+          <div class="col-md-6 created-by">
+            <p><span id="blogpost-id">{{id}}</span>
+              Created on 
+              {{format_date post.date_created}}</p>
+          </div>
+          {{!-- <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+      </div> MIGHT NEED IT--}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
 
 <div class="row">
   <div class="col-auto">
@@ -26,67 +74,5 @@
     </form>
   </div>
 
-  <!-- check the posts then execute it -->
-  {{#if posts.length}}
-  <div class="col-md-6 blogpost-list">
-    <h3>All Posts:</h3>
-
-    <!-- create a template loop for the collection of posts in this blog -->
-    {{#each posts as |post|}}
-    <div class="row mb-2 user-blogpost-names-list-item">
-      <div class="col-md-8">
-        <h4><a
-                class="user-blogpost-names-list-item-link"
-                href="/api/post/{{post.id}}"
-              >{{post.name}}</a></h4>
-          </div>
-          <div class="col-md-6 created-by">
-            <p><span id="blogpost-id">{{id}}</span>
-              Created on 
-              {{format_date post.date_created}}</p>
-          </div>
-          {{!-- <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
-      </div> MIGHT NEED IT--}}
-    {{!-- </div>
-    {{/each}}
-  </div>
-  {{/if}}
-{{!-- </div> --}} 
-
-<script src="./js/create-post.js"></script>
-{{!-- <script src="./js/dashboard.js"></script> MIGHT NEED IT--}}
-
-{{#if posts.length}}
-{{#each posts as |post|}}
-<section class="dashboard-content">
-    <a href="/posts/{{post.id}}">
-    <div class="db-title">
-        <span>{{post.title}}</span>
-    </div>
-    </a>
-    <div class="db-date">
-        <span>{{format_date post.date_created}}</span>
-    </div>
-</section>
-{{/each}}
-{{/if}}
-
-<section class="post">
-    <div class="section-header">
-        <h3>Create New Post</h3>
-    </div>
-    <div class="section-body">
-        <form id="new-post-form">
-            <label for="title">Title</label>
-            <input type="text" name="title" id="title">
-            <label for="content">Content</label>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
-            <button class="create-post" type="submit">Create</button>
-        </form>
-    </div>
-</section>
 
 <script src="/js/create-post.js"></script>
