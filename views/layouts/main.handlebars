@@ -20,8 +20,9 @@
          <a href="/">Home</a>
          <a href="/dashboard">Dashboard</a>
                 {{#if logged_in}}
-                <a href="/logout">
-                <id="logout">Logout</button></a>
+                {{!-- <a href="/logout">
+                 <button id="no-button" id="logout">Logout</button> --}}
+                 <a id="logout" href="/logout">Logout</a>
                 {{else}}
                 <a href="/login">Login</a>
                 {{/if}}
@@ -30,6 +31,7 @@
             <h1>The Tech Blog</h1>
         </div>
         </header>
+
         <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
@@ -41,6 +43,6 @@
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  {{!-- <script src="/js/comment.js"></script> --}}
+  {{!-- <script src="/js/signup.js"></script> --}}
 </body>
 </html>

@@ -1,6 +1,4 @@
-// to edit
-
-sync function editFormHandler(event) {
+async function editFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('#title').value;

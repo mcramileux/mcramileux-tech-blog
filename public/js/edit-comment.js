@@ -1,5 +1,3 @@
-// to edit
-
 async function editFormHandler(event) {
     event.preventDefault();
 

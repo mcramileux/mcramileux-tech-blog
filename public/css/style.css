@@ -107,18 +107,18 @@ nav a:hover {
   display: none;
 }
 
-.user-blogpost-names-list-item {
-  background-color: #221010;
+.client-blogpost-names-list-item {
+  background-color:  #a7a7a7;;
   border-radius: 1.5rem;
   display: flex;
 }
 
-.user-blogpost-names-list-item-link {
+.client-blogpost-names-list-item-link {
   margin: 1rem 2rem 1rem 2rem;
   color: #d9e9d3;
 }
 
-.user-blogpost-names-list-item-link:hover {
+.client-blogpost-names-list-item-link:hover {
     text-decoration: underline;
     color:#ebf0f5;
 }

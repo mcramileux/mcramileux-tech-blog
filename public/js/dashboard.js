@@ -2,49 +2,49 @@
 // CHECK THE ID AND CLASS SELECTOR IN HANDLEBARS
 // OTHER THAN THAT, ALL CODES ARE GOOD
 
-const newFormHandler = async (event) => {
-    event.preventDefault();
+// const newFormHandler = async (event) => {
+//     event.preventDefault();
 
-    const title = document.querySelector('#blogpost-name').value.trim();
-    const content = document.querySelector('#blogpost-cont').value.trim();
+//     const title = document.querySelector('#blogpost-name').value.trim();
+//     const content = document.querySelector('#blogpost-cont').value.trim();
 
-    if (title && content) {
-        const response = await fetch("/api/post", {
-            method: 'POST',
-            body: JSON.stringify({ title, content }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+//     if (title && content) {
+//         const response = await fetch("/api/post", {
+//             method: 'POST',
+//             body: JSON.stringify({ title, content }),
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//         });
 
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to create a new post');
-        }
-    }
-};
+//         if (response.ok) {
+//             document.location.replace('/dashboard');
+//         } else {
+//             alert('Failed to create a new post');
+//         }
+//     }
+// };
 
-const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+// const delButtonHandler = async (event) => {
+//     if (event.target.hasAttribute('data-id')) {
+//         const id = event.target.getAttribute('data-id');
 
-        const response = await fetch(`/api/post/${id}`, {
-            method: 'DELETE',
-        });
+//         const response = await fetch(`/api/post/${id}`, {
+//             method: 'DELETE',
+//         });
 
-        if (response.ok) {
-            document.location.replace('/dashboard');
-        } else {
-            alert('Failed to delete the post');
-        }
-    }
-};
+//         if (response.ok) {
+//             document.location.replace('/dashboard');
+//         } else {
+//             alert('Failed to delete the post');
+//         }
+//     }
+// };
 
-document
-    .querySelector('.new-blogpost-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
-    .addEventListener('submit', newFormHandler); //CHECK THIS BUTTON IN HANDLEBARS
+// document
+//     .querySelector('.new-blogpost-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
+//     .addEventListener('submit', newFormHandler); //CHECK THIS BUTTON IN HANDLEBARS
 
-document
-    .querySelector('.blogpost-list') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
-    .addEventListener('click', delButtonHandler); //CHECK THIS BUTTON IN HANDLEBARS
+// document
+//     .querySelector('.blogpost-list') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
+//     .addEventListener('click', delButtonHandler); //CHECK THIS BUTTON IN HANDLEBARS
