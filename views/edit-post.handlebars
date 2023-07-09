@@ -1,17 +1,22 @@
-<section class="post">
-    <div class="section-header">
-        <h3>Edit Post</h3>
-    </div>
-    <div class="section-body">
-        <form id ="edit-post-form">
-            <label for="title"></label>
-            <input type="text" value="{{post.title}}" name="title" id="title">
-            <label for="content"></label>
-            <textarea name="content" id="content" cols="30" rows="10">{{post.content}}</textarea>
-            <button class="edit-post" type="submit">Update Post</button>
-        </form>
-        <button class="edit-post" id="delete">Delete Post</button>
-    </div>
-</section>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h4>Create a New  Post</h4>
 
+    <form class="form text" id="edit-project-form">
+      <div class="form-group">
+        <label for="blogpost-name">Blog Title</label>
+        <input required class="form-input" type="text" id="blogpost-name" name="blogpost-name" value="{{post.title}}" />
+      </div>
+      <div class="form-group">
+        <label for="blogpost-desc">Blog Contents</label>
+        <textarea required class="form-input" id="blogpost-desc" name="blogpost-desc">{{post.content}}</textarea>
+      </div>
+      <div class="form-group flex flex-row sm:flex-row">
+        <button class="btn btn-light" id="post-btn"data-entry={{post.id}}>Update Post</button>
+        <button class="btn btn-primary" id="delete-btn" data-id={{post.id}}>Delete</button>
+        <a href="/dashboard" class="cancel-text" id="cancel-button" role="button">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
 <script src="/js/edit-post.js"></script>

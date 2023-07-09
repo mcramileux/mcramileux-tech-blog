@@ -1,33 +1,19 @@
-// followed the mini-project's solved folder
-// CHECK THE ID AND CLASS SELECTOR IN HANDLEBARS
-// this doesn't works
-
 const newCommentHandler = async (event) => {
     event.preventDefault();
     
-    const comment_text = document.querySelector('#comment-desc').value.trim();
-    const post_id = window.location.toString().split("/")[
-        window.location.toString().split("/").length - 1
-        ];
-    // const post_id = document.getElementById('#blogpost-id');
-    // var post_id = dataElement.getAttribute('data-id');
-    // console.log(post_id); //CHECK THIS LINE IN HANDLEBARS
+    const content = document.querySelector('#comment-desc').value.trim();
+    const postId = document.querySelector('#comment-btn').getAttribute('data-id');
 
-    if (comment_text) {
+    if (content) {
         await fetch('/api/comments', {
             method: 'POST',
-            body: JSON.stringify({ comment_text, post_id }),
+            body: JSON.stringify({ content, postId }),
             headers: {
                 'Content-Type': 'application/json',
             },
         })
-        // .then((response) => {
             if (response.ok) {
-                // fetch('/api/posts/' + post_id, {
-                //     method: 'GET',
-                // });
-                // window.location.reload();
-                document.location.reload();
+                location.reload();
             } else {
                 alert(response.statusText);
             } 
@@ -35,5 +21,4 @@ const newCommentHandler = async (event) => {
     }
 
 document
-    .querySelector('#new-comment-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
-    .addEventListener('submit', newCommentHandler); //CHECK THIS BUTTON
+    .querySelector('#comment-btn').addEventListener('click', newCommentHandler);

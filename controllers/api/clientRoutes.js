@@ -1,5 +1,3 @@
-// Followed the mini-project's solved folder - ALL THE SAME FROM THE MINI PROJECT
-
 // Client Route
 const router = require('express').Router();
 const { Client } = require('../../models');

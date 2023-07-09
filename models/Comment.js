@@ -17,6 +17,11 @@ Comment.init({
             len: [1]
         }
     },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
     client_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -25,14 +30,14 @@ Comment.init({
             key: 'id'
         }
     },
-    post_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'post',
-            key: 'id'
-        }
-    }
+    // post_id: {
+    //     type: DataTypes.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'post',
+    //         key: 'id'
+    //     }
+    // }
 }, {
     sequelize,
     freezeTableName: true,

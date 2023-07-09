@@ -1,17 +1,15 @@
-async function editFormHandler(event) {
+const editFormHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#title').value;
-    const contents = document.querySelector('#content').value;
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
-
-    const response = await fetch(`/api/posts/${id}`, {
+    const postId = event.target.getAttribute('data-entry');
+    const title = document.getElementById('blogpost-name').value;
+    const content = document.getElementById('blogpost-desc').value;
+    
+    const response = await fetch(`/api/posts/${postId}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
-            contents
+            content
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -25,12 +23,11 @@ async function editFormHandler(event) {
     }
 }
 
-async function deleteFormHandler(event) {
+const deleteFormHandler = async (event) => {
     event.preventDefault();
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    if (event.target.hasAttribute('data-entry')) {
+        const id = event.target.getAttribute('data-entry');
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
@@ -44,7 +41,8 @@ async function deleteFormHandler(event) {
     } else {
         alert(response.statusText);
     }
-}
+    }
+};
 
-document.querySelector('#edit-post-form').addEventListener('submit', editFormHandler);
-document.querySelector('#delete').addEventListener('click', deleteFormHandler);
+document.querySelector('#post-btn').addEventListener('click', editFormHandler);
+document.querySelector('#delete-btn').addEventListener('click', deleteFormHandler);

@@ -31,21 +31,42 @@
 * Express.JS
 
 ## Installation
-- Navigate to this [repository]().
+- Navigate to this [repository](https://github.com/mcramileux/mcramileux-tech-blog).
 - Open your terminal on your local machine and clone the repository.
-- The following are the installation needed to start the blog to work before anything else:
-  - npm i: install the dependencies packages
-  - .env: fill up the following information needed for security purposes:
-      - DB_NAME='techBlog_db'
-      - DB_PASSWORD='your password'
-      - DB_USER='your MYSQL username'
+- To install the package dependencies, run the following command in the terminal.
+  ```md
+  npm i 
+  ```
+- Create an .env file to insure the root directory of the application. Once done, fill up the following information needed for security purposes:
+  ```md
+  DB_NAME='techBlog_db'
+  DB_PASSWORD='your MySQL password'
+  DB_USER='your MYSQL username''
+  ```
+-  Run the command to open the mysql shell:
+  ```md
+  mysql -u root -p
+  ```
+- Enter your secured password as the terminal will prompt this question.
+- Then run this command to create and present the database:
+  ```md
+  source schema.sql;
+  ```
+- To create the tables and its relationships to the application, run this step:
+  ```md
+  npm run seed
+  ```
+- Open the server file to run this command from the application root directory
+  ```md 
+  npm run start
+  ```
 
 ## Usage and Screenshots
-
+---- TO EDIT
 
 ## Links
 - Github Repository: https://github.com/mcramileux/mcramileux-tech-blog
-- Heroku Deployment:
+- Heroku Deployment: ---- TO EDIT
 
 ## Contributions
 * Contributions to this project won't be accepted as this is the reflection of the author's work hence the following questions and answers. Furthermore, forking or creating a pull request is acceptable.
@@ -63,7 +84,7 @@ This project is under [MIT](https://choosealicense.com/licenses/mit/) license.
 - [Sequelize](https://sequelize.org/)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [.gitignore](https://github.com/jpd61/mvc-tech-blog/blob/master/.gitignore)
-- [Unsplash](https://unsplash.com/photos/oCVgzXKf9s4) color scheme for the blog site with the help of Color Picker
+- MVC's Mini Project solved folder
 
 ## Acknowledgements and Credits
 - Jacob Carver - weekly boot camp tutor
