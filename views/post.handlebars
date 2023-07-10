@@ -1,4 +1,4 @@
-<div class="col-md-12 mb-4">
+<div class="col-md-12 mb-4 p-0">
   <div class="row mt-4 blogpost-header">
     <div class="col-md-6">
       <h2 class="blogpost-name-not-link">{{title}}</h2>
@@ -13,29 +13,32 @@
     </div>
   </div>
 
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
+  <div class="row input-group mb-3 p-0">
+    <div class="row mt-4 input-group-prepend">
+     <div class="col-md-12 mb-4">
       <div id="comment-container" style="flex">
-        <div class="comment">
+        <div class="row mt-6 comment">
           <label for="comment-container">Add your comment:</label>
-            <input class="input" type="text" id="comment-desc"/>
+            <textarea class="form-control" type="text" id="comment-desc" rows="3"></textarea>
                 <button class="btn btn-primary" id="comment-btn" data-id={{id}}>+Add Comment</button>
       </div>
     </div>
   </div>
 
-    <div class="col-md-12 mb-4">
+    <div class="col-md-12 mb-4 p-0">
       <div class="row mt-4 blogpost-desc">
         <div class="col-md-12">
           {{#if comments}}
-            {{#each comments}}
-              <p> By {{client.name}},
-                        {{description}} on
-                          {{format_date date_created}}</p>
-        </div>
+            {{#each comments}} 
+            <h4 class="text-link fst-normal mb-0">
+              By: {{client.name}} 
+                <span class="text-primary ms-2 comment-desc">{{description}}</span>
+                  on {{format_date date_created}}
+                </h4>
       {{/each}}
     {{/if}}
-      </div>
     </div>
+  </div>
+ </div>
 
 <script src="/js/comment.js"></script>

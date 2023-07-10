@@ -47,9 +47,11 @@ h2, h3, .form-group, #comment-container {
   font-weight: bold;
 }
 
+
 p {
   color: #008080;
   font-weight: bold;
+  text-decoration: none;
 }
 
 nav a {
@@ -76,6 +78,17 @@ nav a:hover {
   line-height: auto;
 }
 
+.created-by {
+  color:#ebf0f5;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.created-by p {
+  text-align: right;
+  margin: 0;
+  line-height: auto;
+}
 .blogpost-desc {
   margin-top: 0;
   border-color: #221010;
@@ -101,6 +114,13 @@ nav a:hover {
     text-decoration: underline;
 }
 
+#comment-desc {
+  padding: 10px;
+  margin-top: 15px;
+  border-bottom: 1px solid;
+
+  
+}
 .blogpost-name-link {
     color: #d9e9d3;
 }
@@ -136,4 +156,9 @@ nav a:hover {
 
 .container {
   color: #d9e9d3;
+}
+
+.comment-container {
+  border: black 2px solid;
+
 }

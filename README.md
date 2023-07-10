@@ -63,7 +63,16 @@
   ```
 
 ## Usage and Screenshots
----- TO EDIT
+- Homepage:
+- <img width="1332" alt="homepage" src="https://github.com/mcramileux/mcramileux-tech-blog/assets/122607160/8e86c05c-993f-44d4-b1fe-90532b359fef">
+- Login:
+- <img width="1015" alt="login" src="https://github.com/mcramileux/mcramileux-tech-blog/assets/122607160/ce8b149f-3f15-413b-a9b5-a3aec57b2a8b">
+- Signup:
+- <img width="1015" alt="signup" src="https://github.com/mcramileux/mcramileux-tech-blog/assets/122607160/e0c56359-a84a-44f2-81c8-85ab79d0d305">
+- New blog:
+- <img width="1416" alt="new-blog" src="https://github.com/mcramileux/mcramileux-tech-blog/assets/122607160/36a504a6-3ab1-4a15-b8cb-5926f5fb3142">
+- With comment:
+- <img width="1235" alt="with-comment" src="https://github.com/mcramileux/mcramileux-tech-blog/assets/122607160/54fe249c-20ec-48f2-b69f-4e86ef18c2a0">
 
 ## Links
 - Github Repository: https://github.com/mcramileux/mcramileux-tech-blog
