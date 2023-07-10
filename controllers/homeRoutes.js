@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Client, Comment } = require('../models'); 
+const { Post, Client, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Get all posts
@@ -16,17 +16,17 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const post = postData.map((post) => post.get({ plain: true }));
-
+    const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      post,
+      posts,
       logged_in: req.session.logged_in,
     });
-      } catch (err) {
-        res.status(500).json(err);
-    }
-  });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Gets all existing post created by client
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -71,8 +71,8 @@ router.get('/post/:id', async (req, res) => {
           attributes: ['name'],
         },
         {
-          model: Comment, 
-          include:[{ model: Client }]
+          model: Comment,
+          include: [{ model: Client }]
         },
       ],
     });
@@ -145,15 +145,15 @@ router.get('/login', (req, res) => {
 // Get to signup
 router.get('/signup/', (req, res) => {
   if (req.session.logged_in) {
-      res.redirect('/');
-      return;
+    res.redirect('/');
+    return;
   }
   res.render('signup');
 });
 
 router.get('/logout', (req, res) => {
   req.session.destroy(() => {
-      res.redirect('/');
+    res.redirect('/');
   });
 });
 
