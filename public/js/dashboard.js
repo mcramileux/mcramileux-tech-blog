@@ -1,21 +1,14 @@
-// followed the mini-project's solved folder
-// CHECK THE ID AND CLASS SELECTOR IN HANDLEBARS
-// OTHER THAN THAT, ALL CODES ARE GOOD
-
-// const newFormHandler = async (event) => {
-    document.getElementById('new-project-form').onsubmit = async (event) => {
+document.getElementById('new-blogpost-form').onsubmit = async (event) => {
     event.preventDefault();
 
     const title = document.querySelector('#blogpost-name').value.trim();
-    const content = document.querySelector('#blogpost-cont').value.trim();
+    const description = document.querySelector('#blogpost-cont').value.trim();
 
-    if (title && content) {
+    if (title && description) {
         const response = await fetch(`/api/posts`, {
             method: 'POST',
-            body: JSON.stringify({ title, content }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            body: JSON.stringify({ title, description }),
+            headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {

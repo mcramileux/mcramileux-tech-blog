@@ -3,23 +3,19 @@ const editFormHandler = async (event) => {
 
     const postId = event.target.getAttribute('data-entry');
     const title = document.getElementById('blogpost-name').value;
-    const content = document.getElementById('blogpost-desc').value;
+    const description = document.getElementById('blogpost-desc').value;
     
     const response = await fetch(`/api/posts/${postId}`, {
         method: 'PUT',
-        body: JSON.stringify({
-            title,
-            content
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body: JSON.stringify({ title, description }),
+        headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
+        // Refresh the page
         document.location.replace('/dashboard/');
     } else {
-        alert(response.statusText);
+        alert('Failed to update post');
     }
 }
 
@@ -31,15 +27,14 @@ const deleteFormHandler = async (event) => {
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
+        // Refresh the page
         document.location.replace('/dashboard/');
     } else {
-        alert(response.statusText);
+        alert('Failed to delete post');
     }
     }
 };

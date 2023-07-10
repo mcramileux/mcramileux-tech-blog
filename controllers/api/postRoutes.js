@@ -1,6 +1,3 @@
-//Followed the solved folder in the mini-project
-// post and delete - all good, check about router.put
-
 const router = require('express').Router();
 const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -22,19 +19,14 @@ router.post('/', async (req, res) => {
 
 // Edit a post
 router.put('/:id', withAuth, async (req, res) => {
-  console.log(req.body)
   try {
-      const results = await Post.update(req.body, { //results was postData
+    console.log(req.body)
+      const results = await Post.update(req.body, {
           where: {
               id: req.params.id,
           },
       });
-
-      // if (!postData) {
-      //     res.status(404).json({ message: 'No post found with this id' });
-      //     return;
-      // }
-      res.status(200).json(results); //results was postData
+      res.status(200).json(results);
   } catch (err) {
       res.status(500).json(err);
   }

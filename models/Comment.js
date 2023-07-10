@@ -10,7 +10,7 @@ Comment.init({
         primaryKey: true,
         autoIncrement: true
     },
-    comment_text: {
+    description: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -18,9 +18,9 @@ Comment.init({
         }
     },
     date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
     },
     client_id: {
         type: DataTypes.INTEGER,
@@ -30,20 +30,13 @@ Comment.init({
             key: 'id'
         }
     },
-    // post_id: {
-    //     type: DataTypes.INTEGER,
-    //     allowNull: false,
-    //     references: {
-    //         model: 'post',
-    //         key: 'id'
-    //     }
-    // }
-}, {
+    }, 
+    {
     sequelize,
     freezeTableName: true,
     underscored: true,
     modelName: 'comment'
-})
-
+    }
+);
 
 module.exports = Comment;
