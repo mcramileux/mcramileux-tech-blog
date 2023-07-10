@@ -5,7 +5,7 @@ const clientRoutes = require('./clientRoutes');
 const postRoutes = require('./postRoutes');
 const commentRoutes = require('./commentRoutes');
 
-router.use('/clients', clientRoutes);
+router.use('/client', clientRoutes);
 router.use('/post', postRoutes);
 router.use('/comment', commentRoutes);
 

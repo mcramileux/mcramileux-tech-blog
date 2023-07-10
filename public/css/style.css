@@ -53,13 +53,13 @@ nav a:hover {
     color: #a7a7a7;
 }
 
-.created-by {
+.created-on {
   color: #d9e9d3;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.created-by p {
+.created-on p {
   text-align: right;
   margin: 0;
   line-height: auto;
@@ -121,4 +121,8 @@ nav a:hover {
 .client-blogpost-names-list-item-link:hover {
     text-decoration: underline;
     color:#ebf0f5;
+}
+
+.container {
+  color: #d9e9d3;
 }

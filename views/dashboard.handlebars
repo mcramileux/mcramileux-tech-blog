@@ -24,34 +24,22 @@
     </form>
   </div>
 
-
     <div class="col-md-12 mt-4 blogpost-list">
       <div class="row mt-4">
       {{#if posts.length}}
-      {{!-- <h3>All Posts</h3> --}}
-         {{!-- <h4>{{user_name}}'s Blog Posts!</h4> --}}
+      <h4 class="text-link">{{client_name}}'s Blog Posts!</h4>
 
     {{#each posts as |post|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        {{!-- <h4><a
-                class="client-blogpost-names-list-item-link"
-                {{!-- href="/api/posts/{{post.id}}" --}}
-                {{!-- href="/post/{{post.id}}">{{post.title}}</a></h4> --}}
-        
-          {{!-- <div class="col-md-6 created-by">
-            <p><span id="blogpost-id">{{id}}</span>
-              Created on: 
-              {{format_date post.date_created}}</p>
-          </div>
-          <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
-          <p href="/post/{{post.id}}">{{post.content}}</p>
-      </div> --}}
-      {{!-- <div class="col-md-4">
-        <a href="/edit-post/{{post.id}}" class="btn btn-sm btn-light" id="edit-button" role="button">Edit</a>
-        <button class="btn btn-sm btn-danger delete-btn" data-id="{{post.id}}">DELETE</button>
-      </div>
-    </div> --}}
+        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+        </div>
+
+          <div class="col-md-4">
+              <a href="/edit-post/{{post.id}}" class="btn btn-light" id="edit-button" role="button">Edit</a>
+              <button class="btn btn-primary delete-btn" data-id={{post.id}}>Delete</button>
+			</div>
+    </div>
     {{/each}}
   {{/if}}
 </div>

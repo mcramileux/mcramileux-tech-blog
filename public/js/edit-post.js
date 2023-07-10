@@ -5,7 +5,7 @@ const editFormHandler = async (event) => {
     const title = document.getElementById('blogpost-name').value;
     const description = document.getElementById('blogpost-desc').value;
     
-    const response = await fetch(`/api/posts/${postId}`, {
+    const response = await fetch(`/api/post/${postId}`, {
         method: 'PUT',
         body: JSON.stringify({ title, description }),
         headers: { 'Content-Type': 'application/json' },
@@ -25,7 +25,7 @@ const deleteFormHandler = async (event) => {
     if (event.target.hasAttribute('data-entry')) {
         const id = event.target.getAttribute('data-entry');
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/post/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
     });
