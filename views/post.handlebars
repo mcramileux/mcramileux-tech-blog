@@ -7,7 +7,7 @@
     <div class="col-md-6 created-by">
       <p><span data-id={{id}} id="blogpost-id"></span>
         Created by
-        {{client_name}}
+        {{client.name}}
         on
         {{format_date date_created}}</p>
     </div>
@@ -29,7 +29,7 @@
         <div class="col-md-12">
           {{#if comments}}
             {{#each comments}}
-              <p> By {{client_name}},
+              <p> By {{client.name}},
                         {{description}} on
                           {{format_date date_created}}</p>
         </div>

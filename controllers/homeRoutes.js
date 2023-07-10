@@ -143,7 +143,7 @@ router.get('/login', (req, res) => {
 });
 
 // Get to signup
-router.get('/signup/', (req, res) => {
+router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/');
     return;
@@ -151,10 +151,10 @@ router.get('/signup/', (req, res) => {
   res.render('signup');
 });
 
-router.get('/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.redirect('/');
-  });
-});
+// router.get('/logout', (req, res) => {
+//   req.session.destroy(() => {
+//     res.redirect('/');
+//   });
+// });
 
 module.exports = router;

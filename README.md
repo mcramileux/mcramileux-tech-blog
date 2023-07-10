@@ -4,6 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
+- A CMS-style blog site, where developers can publish their blog posts and comment on other developers’ posts as well. This application followed the MVC paradigm in its architectural structure, using Handlebars.js as the front-end template language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## Table of Contents
 - [McRamileux's Tech Blog](#mcramileuxs-tech-blog)
@@ -84,7 +85,9 @@ This project is under [MIT](https://choosealicense.com/licenses/mit/) license.
 - [Sequelize](https://sequelize.org/)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [.gitignore](https://github.com/jpd61/mvc-tech-blog/blob/master/.gitignore)
-- MVC's Mini Project solved folder
+- MVC's Mini Project solved folder as starter code
+- Second Group Project as starter code
+- Mock up example photo as guide to create this blog site
 
 ## Acknowledgements and Credits
 - Jacob Carver - weekly boot camp tutor
@@ -92,5 +95,3 @@ This project is under [MIT](https://choosealicense.com/licenses/mit/) license.
   
 ## Author
 - © 2023 mcramileux 
-  
-
