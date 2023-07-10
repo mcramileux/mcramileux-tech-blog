@@ -7,6 +7,7 @@
   --hover: #ba8a69;
   --text: #ebf0f5;
   --gray: #a7a7a7;
+  --paragraph: #cd853f;
 
 }
 header, .blogpost-header, .blogpost:not(:last-child) {
@@ -41,8 +42,13 @@ header h1 {
     justify-items: center;
 }  
 
-h2, .form-group, #comment-container {
+h2, h3, .form-group, #comment-container {
   color: #221010;
+  font-weight: bold;
+}
+
+p {
+  color: #008080;
   font-weight: bold;
 }
 
