@@ -42,7 +42,6 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      // console.log(clientData.id, req.session);
       req.session.client_id = clientData.id;
       req.session.logged_in = true;
 

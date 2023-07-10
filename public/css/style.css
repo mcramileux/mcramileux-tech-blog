@@ -41,6 +41,11 @@ header h1 {
     justify-items: center;
 }  
 
+h2, .form-group, #comment-container {
+  color: #221010;
+  font-weight: bold;
+}
+
 nav a {
     margin: 1.2rem;
     text-decoration: none;
@@ -95,7 +100,7 @@ nav a:hover {
 }
 
 .blogpost-name-not-link {
-    color: #221010;
+    color: #ebf0f5;
 }
 
 .blogpost-name-link:hover {

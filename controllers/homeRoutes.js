@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const post = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', {
-      posts,
+      post,
       logged_in: req.session.logged_in,
     });
       } catch (err) {
@@ -45,14 +45,14 @@ router.get('/dashboard', withAuth, async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const post = postData.map((post) => post.get({ plain: true }));
 
     const clientData = await Client.findByPk(req.session.client_id);
     const client = clientData.get({ plain: true });
 
     // Pass serialized data and session flag into template
     res.render('dashboard', {
-      posts,
+      post,
       logged_in: req.session.logged_in,
       client_name: client.name,
     });
@@ -95,7 +95,7 @@ router.get('/edit-post/:id', withAuth, async (req, res) => {
       where: { client_id: req.session.client_id },
       include: [
         {
-          model: client,
+          model: Client,
           attributes: ['name'],
         },
       ],
@@ -124,7 +124,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const user = clientData.get({ plain: true });
 
     res.render('dashboard', {
-      ...client,
+      ...Client,
       logged_in: true
     });
   } catch (err) {

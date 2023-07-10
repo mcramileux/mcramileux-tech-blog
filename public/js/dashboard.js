@@ -34,11 +34,3 @@ const delButtonHandler = async (event) => {
         }
     }
 };
-
-// document
-//     .querySelector('.new-blogpost-form') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
-//     .addEventListener('submit', newFormHandler); //CHECK THIS BUTTON IN HANDLEBARS
-
-// document
-//     .querySelector('.blogpost-list') //CHECK THIS CLASS SELECTOR IN HANDLEBARS
-//     .addEventListener('click', delButtonHandler); //CHECK THIS BUTTON IN HANDLEBARS
