@@ -7,7 +7,7 @@
   --hover: #ba8a69;
   --text: #ebf0f5;
   --gray: #a7a7a7;
-  --paragraph: #cd853f;
+  --paragraph: #008080;
 
 }
 header, .blogpost-header, .blogpost:not(:last-child) {
@@ -42,16 +42,11 @@ header h1 {
     justify-items: center;
 }  
 
-h2, h3, .form-group, #comment-container {
-  color: #221010;
-  font-weight: bold;
-}
-
-
 p {
   color: #008080;
   font-weight: bold;
   text-decoration: none;
+  margin: 10px ;
 }
 
 nav a {
@@ -117,10 +112,46 @@ nav a:hover {
 #comment-desc {
   padding: 10px;
   margin-top: 15px;
-  border-bottom: 1px solid;
-
-  
+  border-bottom: 1px solid; 
 }
+
+h2, h3, .form-group {
+  color:#221010;
+  font-weight: bold;
+
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+textarea[name="comment-body"] {
+  width: 100%;
+  max-width: 1000px;
+}
+
+section { 
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  border: 3px solid #221010;
+  margin: 10px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  padding: 15px; 
+  background-color: #ccc;
+}
+
+.section-body {
+  margin: 10px 0;
+}
+
 .blogpost-name-link {
     color: #d9e9d3;
 }
