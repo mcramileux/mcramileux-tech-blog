@@ -115,11 +115,21 @@ nav a:hover {
   border-bottom: 1px solid; 
 }
 
-h2, h3, .form-group {
+h2 {
   color:#221010;
   font-weight: bold;
-
 }
+
+h3, .form-group {
+  color:#221010;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .comment-form {
   display: flex;
   flex-direction: column;
@@ -129,27 +139,6 @@ h2, h3, .form-group {
 textarea[name="comment-body"] {
   width: 100%;
   max-width: 1000px;
-}
-
-section { 
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  border: 3px solid #221010;
-  margin: 10px;
-}
-
-.section-header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 50px;
-  padding: 15px; 
-  background-color: #ccc;
-}
-
-.section-body {
-  margin: 10px 0;
 }
 
 .blogpost-name-link {
@@ -191,5 +180,4 @@ section {
 
 .comment-container {
   border: black 2px solid;
-
 }
