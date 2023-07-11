@@ -12,8 +12,8 @@
         <textarea required class="form-input" id="blogpost-desc" name="blogpost-desc">{{post.description}}</textarea>
       </div>
       <div class="form-group flex flex-row sm:flex-row">
-        <button class="btn btn-light" id="post-btn"data-entry={{post.id}}>Update Post</button>
-        <button class="btn btn-primary" id="delete-btn"data-entry={{post.id}}>Delete</button>
+        <button class="btn btn-light" id="post-btn"data-id={{post.id}}>Update Post</button>
+        <button class="btn btn-primary" id="delete-btn"data-id={{post.id}}>Delete</button>
         <a href="/dashboard" class="cancel-text" id="cancel-btn" role="button">Cancel</a>
       </div>
     </form>

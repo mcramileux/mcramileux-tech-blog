@@ -108,6 +108,10 @@ nav a:hover {
     color: #ebf0f5;
     text-decoration: underline;
 }
+.comment{
+  color:#221010;
+  font-weight: bold;
+}
 
 #comment-desc {
   padding: 10px;

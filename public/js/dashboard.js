@@ -19,10 +19,12 @@ document.getElementById('new-blogpost-form').onsubmit = async (event) => {
     }
 };
 
-const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
-
+const deletePosts = document.querySelectorAll('.delete-btn');
+    deletePosts.forEach('click', async (event) => {
+        console.log('click!');
+        event.preventDefault();
+    
+        const id = button.getAttribute('data-id');
         const response = await fetch(`/api/post/${id}`, {
             method: 'DELETE',
         });
@@ -33,4 +35,4 @@ const delButtonHandler = async (event) => {
             alert('Failed to delete the post');
         }
     }
-};
+);
