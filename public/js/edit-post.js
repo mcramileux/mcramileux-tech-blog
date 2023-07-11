@@ -4,7 +4,7 @@ const updatePost = async (event) => {
     const postId = event.target.getAttribute('data-id');
     const title = document.getElementById('blogpost-name').value;
     const description = document.getElementById('blogpost-desc').value;
-    
+
     const response = await fetch(`/api/post/${postId}`, {
         method: 'PUT',
         body: JSON.stringify({ title, description }),
@@ -25,19 +25,23 @@ const deletePost = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/post/${id}`, {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-    });
+        const response = await fetch(`/api/post/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-    if (response.ok) {
-        // Refresh the page
-        document.location.replace('/dashboard');
-    } else {
-        alert('Failed to delete post');
-    }
+        if (response.ok) {
+            // Refresh the page
+            document.location.replace('/dashboard');
+        } else {
+            alert('Failed to delete post');
+        }
     }
 };
 
-document.querySelector('#post-btn').addEventListener('click', updatePost);
+document.querySelector('#update-btn').addEventListener('click', updatePost);
 document.querySelector('#delete-btn').addEventListener('click', deletePost);
+document.querySelector('#cancel-btn').addEventListener('click', (event) => {
+    event.preventDefault();
+    document.location.href = '/dashboard';
+});
